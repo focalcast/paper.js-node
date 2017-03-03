@@ -51,8 +51,24 @@ module.exports = function(window) {
         }
     });
 
+    HTMLCanvasElement.prototype.setDisplay = function(displayName){
+        var impl = idlUtils.implForWrapper(this),
+        size = impl._canvas || impl;
+        impl._canvas = new Canvas(size.width, size.height, 'display', displayName);
+        impl._context = null;
+    };
+
+    Object.defineProperty(HTMLCanvasElement.prototype, 'stride', {
+        get: function(){
+            return idlUtils.implForWrapper(this)._canvas.stride;
+        },
+        set: function(stride){
+            return;
+        }
+    });
+
     // Extend HTMLCanvasElement with useful methods from the underlying Canvas:
-    ['toBuffer', 'pngStream', 'createPNGStream', 'jpgStream', 'createJPGStream']
+    ['toBuffer', 'pngStream', 'createPNGStream', 'jpegStream', 'createJPEGStream']
         .forEach(function(key) {
             HTMLCanvasElement.prototype[key] = function() {
                 var canvas = idlUtils.implForWrapper(this)._canvas;
