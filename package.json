@@ -37,7 +37,7 @@
     "node": ">=4.0.0 <8.0.0"
   },
   "dependencies": {
-    "canvas": "file:///Users/blinginbeckwith/Documents/FocalCast/Docker/Node/local_modules/node-canvas",
+    "canvas": "^1.6.4",
     "jsdom": "^9.4.0",
     "source-map-support": "^0.4.0"
   },
