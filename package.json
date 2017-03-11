@@ -75,9 +75,9 @@
     "canvas": false,
     "jsdom": false,
     "jsdom/lib/jsdom/living/generated/utils": false,
-    "source-map-support": false,
-    "./dist/node/window.js": false,
-    "./dist/node/extend.js": false
+    "source-map-support": true,
+    "./dist/node/window.js": true,
+    "./dist/node/extend.js": true
   },
   "keywords": [
     "vector",
